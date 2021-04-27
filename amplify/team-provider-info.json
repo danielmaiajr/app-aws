@@ -14,6 +14,16 @@
     "categories": {
       "auth": {
         "awsapp706f536e": {}
+      },
+      "function": {
+        "createOrder": {
+          "deploymentBucketName": "amplify-awsapp-dev-110948-deployment",
+          "s3Key": "amplify-builds/createOrder-67536e63324f6c596861-build.zip"
+        },
+        "processPayment": {
+          "deploymentBucketName": "amplify-awsapp-dev-110948-deployment",
+          "s3Key": "amplify-builds/processPayment-48536d74356339724f39-build.zip"
+        }
       }
     }
   }

@@ -23,7 +23,15 @@
               "userPoolId": "authawsapp706f536e"
             }
           },
-          "additionalAuthenticationProviders": []
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "API_KEY",
+              "apiKeyConfig": {
+                "apiKeyExpirationDays": 365,
+                "description": ""
+              }
+            }
+          ]
         }
       }
     }
