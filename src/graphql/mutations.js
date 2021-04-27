@@ -1,19 +1,22 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createTalk = /* GraphQL */ `
-  mutation CreateTalk(
-    $input: CreateTalkInput!
-    $condition: ModelTalkConditionInput
+export const processOrder = /* GraphQL */ `
+  mutation ProcessOrder($input: ProcessOrderInput!) {
+    processOrder(input: $input)
+  }
+`;
+export const createProduct = /* GraphQL */ `
+  mutation CreateProduct(
+    $input: CreateProductInput!
+    $condition: ModelProductConditionInput
   ) {
-    createTalk(input: $input, condition: $condition) {
+    createProduct(input: $input, condition: $condition) {
       id
-      clientId
-      name
-      description
-      speakerName
-      speakerBio
-      comments {
+      product_name
+      price
+      image_url
+      orders {
         nextToken
       }
       createdAt
@@ -21,19 +24,17 @@ export const createTalk = /* GraphQL */ `
     }
   }
 `;
-export const updateTalk = /* GraphQL */ `
-  mutation UpdateTalk(
-    $input: UpdateTalkInput!
-    $condition: ModelTalkConditionInput
+export const updateProduct = /* GraphQL */ `
+  mutation UpdateProduct(
+    $input: UpdateProductInput!
+    $condition: ModelProductConditionInput
   ) {
-    updateTalk(input: $input, condition: $condition) {
+    updateProduct(input: $input, condition: $condition) {
       id
-      clientId
-      name
-      description
-      speakerName
-      speakerBio
-      comments {
+      product_name
+      price
+      image_url
+      orders {
         nextToken
       }
       createdAt
@@ -41,19 +42,17 @@ export const updateTalk = /* GraphQL */ `
     }
   }
 `;
-export const deleteTalk = /* GraphQL */ `
-  mutation DeleteTalk(
-    $input: DeleteTalkInput!
-    $condition: ModelTalkConditionInput
+export const deleteProduct = /* GraphQL */ `
+  mutation DeleteProduct(
+    $input: DeleteProductInput!
+    $condition: ModelProductConditionInput
   ) {
-    deleteTalk(input: $input, condition: $condition) {
+    deleteProduct(input: $input, condition: $condition) {
       id
-      clientId
-      name
-      description
-      speakerName
-      speakerBio
-      comments {
+      product_name
+      price
+      image_url
+      orders {
         nextToken
       }
       createdAt
@@ -61,75 +60,156 @@ export const deleteTalk = /* GraphQL */ `
     }
   }
 `;
-export const createComment = /* GraphQL */ `
-  mutation CreateComment(
-    $input: CreateCommentInput!
-    $condition: ModelCommentConditionInput
+export const createProductOrder = /* GraphQL */ `
+  mutation CreateProductOrder(
+    $input: CreateProductOrderInput!
+    $condition: ModelProductOrderConditionInput
   ) {
-    createComment(input: $input, condition: $condition) {
+    createProductOrder(input: $input, condition: $condition) {
       id
-      message
-      createdBy
-      talk {
+      product_id
+      order_id
+      order {
         id
-        clientId
-        name
-        description
-        speakerName
-        speakerBio
+        user
+        date
+        total
         createdAt
         updatedAt
+        customer
       }
       createdAt
       updatedAt
+      product {
+        id
+        product_name
+        price
+        image_url
+        createdAt
+        updatedAt
+      }
+      customer
     }
   }
 `;
-export const updateComment = /* GraphQL */ `
-  mutation UpdateComment(
-    $input: UpdateCommentInput!
-    $condition: ModelCommentConditionInput
+export const updateProductOrder = /* GraphQL */ `
+  mutation UpdateProductOrder(
+    $input: UpdateProductOrderInput!
+    $condition: ModelProductOrderConditionInput
   ) {
-    updateComment(input: $input, condition: $condition) {
+    updateProductOrder(input: $input, condition: $condition) {
       id
-      message
-      createdBy
-      talk {
+      product_id
+      order_id
+      order {
         id
-        clientId
-        name
-        description
-        speakerName
-        speakerBio
+        user
+        date
+        total
         createdAt
         updatedAt
+        customer
       }
       createdAt
       updatedAt
+      product {
+        id
+        product_name
+        price
+        image_url
+        createdAt
+        updatedAt
+      }
+      customer
     }
   }
 `;
-export const deleteComment = /* GraphQL */ `
-  mutation DeleteComment(
-    $input: DeleteCommentInput!
-    $condition: ModelCommentConditionInput
+export const deleteProductOrder = /* GraphQL */ `
+  mutation DeleteProductOrder(
+    $input: DeleteProductOrderInput!
+    $condition: ModelProductOrderConditionInput
   ) {
-    deleteComment(input: $input, condition: $condition) {
+    deleteProductOrder(input: $input, condition: $condition) {
       id
-      message
-      createdBy
-      talk {
+      product_id
+      order_id
+      order {
         id
-        clientId
-        name
-        description
-        speakerName
-        speakerBio
+        user
+        date
+        total
         createdAt
         updatedAt
+        customer
       }
       createdAt
       updatedAt
+      product {
+        id
+        product_name
+        price
+        image_url
+        createdAt
+        updatedAt
+      }
+      customer
+    }
+  }
+`;
+export const createOrder = /* GraphQL */ `
+  mutation CreateOrder(
+    $input: CreateOrderInput!
+    $condition: ModelOrderConditionInput
+  ) {
+    createOrder(input: $input, condition: $condition) {
+      id
+      user
+      date
+      total
+      products {
+        nextToken
+      }
+      createdAt
+      updatedAt
+      customer
+    }
+  }
+`;
+export const updateOrder = /* GraphQL */ `
+  mutation UpdateOrder(
+    $input: UpdateOrderInput!
+    $condition: ModelOrderConditionInput
+  ) {
+    updateOrder(input: $input, condition: $condition) {
+      id
+      user
+      date
+      total
+      products {
+        nextToken
+      }
+      createdAt
+      updatedAt
+      customer
+    }
+  }
+`;
+export const deleteOrder = /* GraphQL */ `
+  mutation DeleteOrder(
+    $input: DeleteOrderInput!
+    $condition: ModelOrderConditionInput
+  ) {
+    deleteOrder(input: $input, condition: $condition) {
+      id
+      user
+      date
+      total
+      products {
+        nextToken
+      }
+      createdAt
+      updatedAt
+      customer
     }
   }
 `;

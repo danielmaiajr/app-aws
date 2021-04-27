@@ -1,37 +1,54 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getTalk = /* GraphQL */ `
-  query GetTalk($id: ID!) {
-    getTalk(id: $id) {
+export const getOrder = /* GraphQL */ `
+  query GetOrder($id: ID!) {
+    getOrder(id: $id) {
       id
-      clientId
-      name
-      description
-      speakerName
-      speakerBio
-      comments {
+      user
+      date
+      total
+      products {
         nextToken
       }
       createdAt
       updatedAt
+      customer
     }
   }
 `;
-export const listTalks = /* GraphQL */ `
-  query ListTalks(
-    $filter: ModelTalkFilterInput
+export const listOrders = /* GraphQL */ `
+  query ListOrders(
+    $filter: ModelOrderFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listTalks(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listOrders(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        clientId
-        name
-        description
-        speakerName
-        speakerBio
+        user
+        date
+        total
+        createdAt
+        updatedAt
+        customer
+      }
+      nextToken
+    }
+  }
+`;
+export const listProducts = /* GraphQL */ `
+  query ListProducts(
+    $filter: ModelProductFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listProducts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        product_name
+        price
+        image_url
         createdAt
         updatedAt
       }
@@ -39,42 +56,18 @@ export const listTalks = /* GraphQL */ `
     }
   }
 `;
-export const getComment = /* GraphQL */ `
-  query GetComment($id: ID!) {
-    getComment(id: $id) {
+export const getProduct = /* GraphQL */ `
+  query GetProduct($id: ID!) {
+    getProduct(id: $id) {
       id
-      message
-      createdBy
-      talk {
-        id
-        clientId
-        name
-        description
-        speakerName
-        speakerBio
-        createdAt
-        updatedAt
+      product_name
+      price
+      image_url
+      orders {
+        nextToken
       }
       createdAt
       updatedAt
-    }
-  }
-`;
-export const listComments = /* GraphQL */ `
-  query ListComments(
-    $filter: ModelCommentFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        message
-        createdBy
-        createdAt
-        updatedAt
-      }
-      nextToken
     }
   }
 `;
