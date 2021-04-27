@@ -1,0 +1,19 @@
+type Talk @model {
+  id: ID!
+  clientId: ID
+  name: String!
+  description: String!
+  speakerName: String!
+  speakerBio: String!
+  comments: [Comment] @connection(name: "TalkComments")
+}
+
+type Comment @model @auth(rules: [
+  { allow: owner, ownerField: "createdBy", operations: [create, update, delete]},
+  { allow: private, operations: [read] }
+  ]) {
+  id: ID!
+  message: String
+  createdBy: String
+  talk: Talk @connection(name: "TalkComments")
+}
