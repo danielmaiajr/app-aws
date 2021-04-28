@@ -1,6 +1,11 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 
 import { AmplifyAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+
+import { getProduct } from './redux/actions/productActions';
+
+/* import { AmplifyAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 
 // imports from Amplify library
 import { API, graphqlOperation } from 'aws-amplify';
@@ -103,5 +108,29 @@ const App = () => {
 		</AmplifyAuthenticator>
 	);
 };
+ */
 
-export default App;
+const App = (props) => {
+	const { getProduct } = props;
+	useEffect(
+		() => {
+			getProduct();
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		},
+		[ getProduct ]
+	);
+
+	const { products } = props;
+	return (
+		<AmplifyAuthenticator>
+			{products.map((prod) => <h1 key={prod.id}>{prod.product_name}</h1>)}
+			<AmplifySignOut />
+		</AmplifyAuthenticator>
+	);
+};
+
+const mapStateToProps = (state) => ({
+	products: state.product
+});
+
+export default connect(mapStateToProps, { getProduct })(App);
