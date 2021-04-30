@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 
-import { AmplifyAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 
-import { getProduct } from './redux/actions/productActions';
+import HomePage from './pages/HomePage';
 
 /* import { AmplifyAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 
@@ -111,26 +110,11 @@ const App = () => {
  */
 
 const App = (props) => {
-	const { getProduct } = props;
-	useEffect(
-		() => {
-			getProduct();
-			window.scrollTo({ top: 0, behavior: 'smooth' });
-		},
-		[ getProduct ]
-	);
-
-	const { products } = props;
 	return (
 		<AmplifyAuthenticator>
-			{products.map((prod) => <h1 key={prod.id}>{prod.product_name}</h1>)}
-			<AmplifySignOut />
+			<HomePage />
 		</AmplifyAuthenticator>
 	);
 };
 
-const mapStateToProps = (state) => ({
-	products: state.product
-});
-
-export default connect(mapStateToProps, { getProduct })(App);
+export default App;

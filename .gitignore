@@ -43,3 +43,5 @@ amplifytools.xcconfig
 .secret-*
 amplify/backend/api/awsappapi/pipelineFunctions
 amplify/backend/api/awsappapi/resolvers
+
+assets
