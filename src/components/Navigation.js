@@ -16,6 +16,10 @@ export default function Navigation() {
 
 	return (
 		<div className={classes.root}>
+			<div>Logo</div>
+			<div>Search</div>
+			<div>Address</div>
+			<div>Menu</div>
 			<button onClick={() => signOut()} className={classes.signOut}>
 				Sign Out
 			</button>
@@ -26,11 +30,17 @@ export default function Navigation() {
 const useStyles = makeStyles({
 	root: {
 		display: 'flex',
-		justifyContent: 'flex-end',
+		justifyContent: 'space-between',
+		alignItems: 'center',
 		background: '#f7f7f7',
 		boxShadow: 'inset 0 -1px 0 #dcdcdc',
+		position: 'fixed',
+		top: 0,
+		left: 0,
 		height: 80,
-		padding: '0 30px'
+		padding: '0 80px',
+		width: 'calc(100% - 160px)',
+		zIndex: 100
 	},
 	signOut: {
 		border: 'none',
