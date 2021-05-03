@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 // import authReducer from './authReducer';
-// import cartReducer from './cartReducer';
+import cartReducer from './cartReducer';
 // import addressReducer from './addressReducer';
 import productReducer from './productReducer';
 // import orderReducer from './orderReducer';
@@ -12,7 +12,7 @@ export default combineReducers({
 	// loading: loadingReducer,
 	// auth: authReducer,
 	// customer: customerReducer,
-	// cart: cartReducer,
+	cart: cartReducer,
 	// address: addressReducer,
 	// order: orderReducer,
 	product: productReducer

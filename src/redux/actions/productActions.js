@@ -1,10 +1,16 @@
 import { GET_PRODUCT } from '../types';
-import { API, graphqlOperation } from 'aws-amplify';
 
-import { listProducts as ListProducts } from '../../graphql/queries';
+// import { API, graphqlOperation } from 'aws-amplify';
+// import { listProducts as ListProducts } from '../../graphql/queries';
+
+import { products } from '../../assets/data/products';
 
 export const getProduct = () => async (dispatch) => {
-	try {
+	dispatch({
+		type: GET_PRODUCT,
+		payload: products
+	});
+	/* 	try {
 		const productData = await API.graphql(graphqlOperation(ListProducts));
 		console.log('productData:', productData);
 		dispatch({
@@ -13,5 +19,5 @@ export const getProduct = () => async (dispatch) => {
 		});
 	} catch (err) {
 		console.log('error fetching product...', err);
-	}
+	} */
 };
