@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
-import { makeStyles } from '@material-ui/core/styles';
-import PersonIcon from '@material-ui/icons/Person';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import Person from '@material-ui/icons/Person';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import Badge from '@material-ui/core/Badge';
 
 import Menu from './Menu';
 
@@ -12,9 +14,12 @@ export default function Profile() {
 
 	return (
 		<div className={classes.root}>
-			<PersonIcon fontSize="inherit" color="secondary" className={classes.icon} onClick={() => setShow(!show)} />
+			<Person fontSize="inherit" color="secondary" className={classes.icon} onClick={() => setShow(!show)} />
+			<StyledBadge color="secondary" badgeContent={1}>
+				<ShoppingBasketIcon fontSize="inherit" color="secondary" className={classes.shopIcon} />
+			</StyledBadge>
 			{show ? <div className={classes.background} onClick={() => setShow(!show)} /> : null}
-			{show ? <Menu /> : null}
+			{show ? <Menu setShow={setShow} show={show} /> : null}
 		</div>
 	);
 }
@@ -22,6 +27,7 @@ export default function Profile() {
 const useStyles = makeStyles({
 	root: {
 		display: 'flex',
+		alignItems: 'center',
 		position: 'relative'
 	},
 	background: {
@@ -32,9 +38,22 @@ const useStyles = makeStyles({
 		height: '100vh'
 	},
 	icon: {
-		fontSize: 32,
+		fontSize: 28,
 		'&:hover': {
 			cursor: 'pointer'
 		}
+	},
+	shopIcon: {
+		fontSize: 23,
+		marginLeft: 20
 	}
 });
+
+const StyledBadge = withStyles(() => ({
+	badge: {
+		fontSize: 9,
+		minWidth: 15,
+		height: 15,
+		padding: '0 3px'
+	}
+}))(Badge);

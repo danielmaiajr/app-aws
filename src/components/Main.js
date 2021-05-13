@@ -39,8 +39,7 @@ const useStyles = makeStyles({
 		display: 'flex',
 		flexDirection: 'column',
 		width: 'calc(100% - 430px - 2* 300px)',
-		padding: '0 300px',
-		marginTop: 160
+		padding: '0 300px'
 	},
 	content: {
 		display: 'flex',

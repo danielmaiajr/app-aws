@@ -1,14 +1,15 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 export default function Logo() {
 	const classes = useStyles();
 
 	return (
-		<div>
+		<Link to="/">
 			<div className={classes.title}>MERKATHO</div>
 			<div className={classes.subtitle}>ONLINE</div>
-		</div>
+		</Link>
 	);
 }
 

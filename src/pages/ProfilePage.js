@@ -5,7 +5,7 @@ import { Button } from '@material-ui/core';
 
 import { personalData } from '../assets/data/personalData';
 
-const PersonalData = () => {
+const ProfilePage = () => {
 	const classes = useStyles();
 	const [ fields, setFields ] = useState({});
 
@@ -25,7 +25,7 @@ const PersonalData = () => {
 					fullWidth
 					name="name"
 					label="Nome Completo"
-					value={fields.name}
+					value={fields.name || ''}
 					onChange={HandleOnChange}
 					variant="outlined"
 				/>
@@ -34,7 +34,7 @@ const PersonalData = () => {
 					fullWidth
 					name="cpf"
 					label="CPF (opcional)"
-					value={fields.cpf}
+					value={fields.cpf || ''}
 					onChange={HandleOnChange}
 					variant="outlined"
 				/>
@@ -43,7 +43,7 @@ const PersonalData = () => {
 					fullWidth
 					name="phone"
 					label="Celular"
-					value={fields.phone}
+					value={fields.phone || ''}
 					onChange={HandleOnChange}
 					variant="outlined"
 				/>
@@ -52,7 +52,7 @@ const PersonalData = () => {
 					className={classes.formInput}
 					fullWidth
 					label="E-mail"
-					value={fields.email}
+					value={fields.email || ''}
 					variant="outlined"
 				/>
 				<Button className={classes.button} fullWidth color="secondary" variant="contained">
@@ -63,7 +63,7 @@ const PersonalData = () => {
 	);
 };
 
-export default PersonalData;
+export default ProfilePage;
 
 const useStyles = makeStyles((theme) => ({
 	root: {

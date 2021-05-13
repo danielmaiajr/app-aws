@@ -1,16 +1,18 @@
 import React from 'react';
 import { Auth } from 'aws-amplify';
+import { Link } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 
 import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
 
-const Menu = () => {
+const Menu = ({ setShow, show }) => {
 	const classes = useStyles();
 
 	const signOut = async () => {
 		try {
 			await Auth.signOut();
+			setShow(!show);
 		} catch (error) {
 			console.log('error signing out: ', error);
 		}
@@ -19,18 +21,18 @@ const Menu = () => {
 	return (
 		<div className={classes.root}>
 			<div className={classes.title}>Olá, Daniel</div>
-			<div className={classes.btn}>
+			<Link className={classes.btn} to="/order" onClick={() => setShow(!show)}>
 				<ListAltOutlinedIcon style={{ marginRight: 30 }} />
 				<span>Pedidos</span>
-			</div>
-			<div className={classes.btn}>
+			</Link>
+			<Link className={classes.btn} to="/address" onClick={() => setShow(!show)}>
 				<ListAltOutlinedIcon style={{ marginRight: 30 }} />
-				<span>Pedidos</span>
-			</div>
-			<div className={classes.btn}>
+				<span>Endereços</span>
+			</Link>
+			<Link className={classes.btn} to="/profile" onClick={() => setShow(!show)}>
 				<ListAltOutlinedIcon style={{ marginRight: 30 }} />
-				<span>Pedidos</span>
-			</div>
+				<span>Editar dados</span>
+			</Link>
 			<div className={classes.btn} onClick={signOut}>
 				<ListAltOutlinedIcon style={{ marginRight: 30 }} />
 				<span>Sair</span>

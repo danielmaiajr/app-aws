@@ -1,14 +1,15 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 export default function SelectedAddress() {
 	const classes = useStyles();
 
 	return (
-		<div>
+		<Link to="/address">
 			<div className={classes.title}>ENTREGAR EM</div>
 			<div className={classes.subtitle}>Av. José Carlos Paes, 600</div>
-		</div>
+		</Link>
 	);
 }
 
