@@ -1,9 +1,9 @@
 import { GET_ADDRESS, POST_ADDRESS, DELETE_ADDRESS, PUT_ADDRESS } from '../types';
 
 import { v4 as uuidv4 } from 'uuid';
-const CLIENT_ID = uuidv4();
-
 import { address } from '../../assets/data/address';
+
+const ADDRESS_ID = uuidv4();
 
 export const getAddress = () => (dispatch) => {
 	dispatch({
@@ -16,7 +16,7 @@ export const postAddress = (obj) => (dispatch) => {
 	dispatch({
 		type: POST_ADDRESS,
 		payload: {
-			address_id: CLIENT_ID,
+			address_id: ADDRESS_ID,
 			neightborhood: obj.neightborhood,
 			street: obj.street,
 			num: obj.num,

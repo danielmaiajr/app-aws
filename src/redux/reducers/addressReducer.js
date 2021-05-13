@@ -31,7 +31,7 @@ export default function(state = initialState, action) {
 			return exist;
 
 		case DELETE_ADDRESS:
-			exist = state.filter((a) => a.address_id.toString() !== payload.id_removed);
+			exist = state.filter((a) => a.address_id.toString() !== payload);
 			return exist;
 
 		default:
