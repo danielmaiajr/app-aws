@@ -30,7 +30,7 @@ const useStyles = makeStyles({
 	cartItem: {
 		display: 'flex',
 		alignItems: 'center',
-		margin: '20px 30px',
+		margin: '15px 30px',
 		padding: 10,
 		backgroundColor: '#FFF',
 		border: '1px solid #ddd',

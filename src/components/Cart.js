@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getCartItems } from '../redux/actions/cartActions';
 
 import CartItem from './CartItem';
+import Divider from './Divider';
 
 const Cart = () => {
 	const classes = useStyles();
@@ -30,12 +31,24 @@ const Cart = () => {
 
 	return (
 		<div className={classes.root}>
+			<div className={classes.title}>Falta R$ {99 - num},31 para o pedido mínimo</div>
+			<Divider />
 			<div className={classes.cartScroll}>{cartItems.map((item, i) => <CartItem key={i} product={item} />)}</div>
+			<Divider />
 			<div className={classes.cartCheckout}>
-				<div className={classes.cartCheckoutTotal}>Total: R$ {num}</div>
-				<div to="/checkout" className={classes.cartCheckoutButton}>
-					Finalizar
+				<div className={classes.cartCheckoutSubTotal}>
+					<div>Subtotal</div>
+					<div>R$ {num},69</div>
 				</div>
+				<div className={classes.cartCheckoutSubTotal}>
+					<div>Taxa de entrega</div>
+					<div>R$ 0,00</div>
+				</div>
+				<div className={classes.cartCheckoutTotal}>
+					<div>Total</div>
+					<div>R$ {num},69</div>
+				</div>
+				<button className={classes.cartCheckoutButton}>Escolher forma de pagamento</button>
 			</div>
 		</div>
 	);
@@ -53,13 +66,19 @@ const useStyles = makeStyles({
 		boxShadow: '-3px 0 10px -5px rgb(0 0 0 / 30%)',
 		background: '#fff'
 	},
-
+	title: {
+		backgroundColor: '#F7F7F7',
+		color: '#8A8585',
+		fontSize: 12,
+		padding: '12px 30px',
+		margin: '15px 30px'
+	},
 	cartScroll: {
 		margin: 'auto',
 		width: '100%',
+		height: 'calc(100% - 260px)',
 		overflowY: 'auto',
 		overflowX: 'hidden',
-		height: ' calc(100% - 100px)',
 		'&::-webkit-scrollbar': {
 			width: '5px'
 		},
@@ -78,25 +97,40 @@ const useStyles = makeStyles({
 	},
 
 	cartCheckout: {
-		bottom: 0,
-		right: 0,
-		width: '100%',
-		backgroundColor: 'rgb(245, 245, 245)',
-		padding: '30px 0',
+		position: 'absolute',
+		bottom: 20,
+		left: 0,
+		width: 'calc(100% - 60px)',
+		padding: '0 30px',
+		display: 'flex',
+		flexDirection: 'column'
+	},
+	cartCheckoutSubTotal: {
+		fontSize: 16,
 		display: 'flex',
 		justifyContent: 'space-between',
-		alignItems: 'center'
+		padding: '4px 0',
+		color: '#717171'
 	},
 	cartCheckoutTotal: {
-		marginLeft: '30px',
+		fontSize: 16,
+		display: 'flex',
+		justifyContent: 'space-between',
+		padding: '4px 0',
+		color: '#3F3F3F',
 		fontWeight: 'bold'
 	},
 	cartCheckoutButton: {
+		border: 'none',
 		backgroundColor: '#ea1d2c',
 		color: '#FFF',
+		fontSize: 16,
 		fontWeight: 'bold',
-		padding: '10px 30px',
-		marginRight: '30px',
-		borderRadius: '5px'
+		marginTop: 15,
+		padding: '15px 0px',
+		borderRadius: '4px',
+		'&:hover': {
+			cursor: 'pointer'
+		}
 	}
 });
