@@ -1,117 +1,60 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateTalk = /* GraphQL */ `
-  subscription OnCreateTalk {
-    onCreateTalk {
+export const onCreateCartItem = /* GraphQL */ `
+  subscription OnCreateCartItem($owner: String) {
+    onCreateCartItem(owner: $owner) {
       id
-      clientId
-      name
-      description
-      speakerName
-      speakerBio
-      comments {
-        nextToken
-      }
+      quantity
       createdAt
       updatedAt
-    }
-  }
-`;
-export const onUpdateTalk = /* GraphQL */ `
-  subscription OnUpdateTalk {
-    onUpdateTalk {
-      id
-      clientId
-      name
-      description
-      speakerName
-      speakerBio
-      comments {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteTalk = /* GraphQL */ `
-  subscription OnDeleteTalk {
-    onDeleteTalk {
-      id
-      clientId
-      name
-      description
-      speakerName
-      speakerBio
-      comments {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateComment = /* GraphQL */ `
-  subscription OnCreateComment {
-    onCreateComment {
-      id
-      message
-      createdBy
-      talk {
+      product {
         id
-        clientId
-        name
-        description
-        speakerName
-        speakerBio
+        product_name
+        price
+        image_url
         createdAt
         updatedAt
       }
-      createdAt
-      updatedAt
+      owner
     }
   }
 `;
-export const onUpdateComment = /* GraphQL */ `
-  subscription OnUpdateComment {
-    onUpdateComment {
+export const onUpdateCartItem = /* GraphQL */ `
+  subscription OnUpdateCartItem($owner: String) {
+    onUpdateCartItem(owner: $owner) {
       id
-      message
-      createdBy
-      talk {
+      quantity
+      createdAt
+      updatedAt
+      product {
         id
-        clientId
-        name
-        description
-        speakerName
-        speakerBio
+        product_name
+        price
+        image_url
         createdAt
         updatedAt
       }
-      createdAt
-      updatedAt
+      owner
     }
   }
 `;
-export const onDeleteComment = /* GraphQL */ `
-  subscription OnDeleteComment {
-    onDeleteComment {
+export const onDeleteCartItem = /* GraphQL */ `
+  subscription OnDeleteCartItem($owner: String) {
+    onDeleteCartItem(owner: $owner) {
       id
-      message
-      createdBy
-      talk {
+      quantity
+      createdAt
+      updatedAt
+      product {
         id
-        clientId
-        name
-        description
-        speakerName
-        speakerBio
+        product_name
+        price
+        image_url
         createdAt
         updatedAt
       }
-      createdAt
-      updatedAt
+      owner
     }
   }
 `;

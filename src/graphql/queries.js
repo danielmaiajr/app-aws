@@ -1,37 +1,38 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getOrder = /* GraphQL */ `
-  query GetOrder($id: ID!) {
-    getOrder(id: $id) {
+export const getCartItem = /* GraphQL */ `
+  query GetCartItem($id: ID!) {
+    getCartItem(id: $id) {
       id
-      user
-      date
-      total
-      products {
-        nextToken
-      }
+      quantity
       createdAt
       updatedAt
-      customer
+      product {
+        id
+        product_name
+        price
+        image_url
+        createdAt
+        updatedAt
+      }
+      owner
     }
   }
 `;
-export const listOrders = /* GraphQL */ `
-  query ListOrders(
-    $filter: ModelOrderFilterInput
+export const listCartItems = /* GraphQL */ `
+  query ListCartItems(
+    $filter: ModelCartItemFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listOrders(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listCartItems(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        user
-        date
-        total
+        quantity
         createdAt
         updatedAt
-        customer
+        owner
       }
       nextToken
     }
@@ -63,9 +64,6 @@ export const getProduct = /* GraphQL */ `
       product_name
       price
       image_url
-      orders {
-        nextToken
-      }
       createdAt
       updatedAt
     }
