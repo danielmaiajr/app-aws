@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-import Navigation from '../components/Navigation';
+import NavBar from '../components/NavBar';
 import Cart from '../components/Cart';
 import Main from '../components/Main';
 
@@ -10,7 +10,7 @@ const HomePage = () => {
 
 	return (
 		<React.Fragment>
-			<Navigation />
+			<NavBar />
 			<div className={classes.root}>
 				<Main />
 				<Cart />
