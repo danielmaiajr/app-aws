@@ -32,6 +32,10 @@ const useStyles = makeStyles({
 		height: 80,
 		padding: '0 300px',
 		width: 'calc(100% - 600px)',
-		zIndex: 100
+		zIndex: 100,
+		'@media (min-width: 1024px)': {
+			padding: '0 40px',
+			width: 'calc(100% - 80px)'
+		}
 	}
 });

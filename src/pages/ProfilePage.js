@@ -78,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
 	title: {
 		fontSize: '1.5625rem',
 		fontWeight: 500,
-		margin: '40px 0',
+		margin: '25px 0',
 		color: '#414143'
 	},
 	formInput: {

@@ -39,10 +39,14 @@ const useStyles = makeStyles({
 		display: 'flex',
 		flexDirection: 'column',
 		width: 'calc(100% - 430px - 2* 300px)',
-		padding: '0 300px'
+		padding: '0 300px',
+		'@media (min-width: 1024px)': {
+			padding: '0 40px',
+			width: 'calc(100% - 430px - 80px)'
+		}
 	},
 	content: {
 		display: 'flex',
-		width: '80%'
+		justifyContent: 'space-between'
 	}
 });

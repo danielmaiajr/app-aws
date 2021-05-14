@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex',
 		flexDirection: 'column',
 		width: '120px',
-		margin: '20px',
 		position: 'relative'
 	},
 	image: {
