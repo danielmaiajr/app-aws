@@ -5,21 +5,22 @@ import Logo from './Logo';
 import Search from './Search';
 import SelectedAddress from './SelectedAddress';
 import Profile from './Profile';
+import Container from '../Container/Container';
 
 export default function NavBar() {
 	const classes = useStyles();
 
 	return (
-		<div className={classes.root}>
+		<Container styles={classes.root}>
 			<Logo />
 			<Search />
 			<SelectedAddress />
 			<Profile />
-		</div>
+		</Container>
 	);
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(() => ({
 	root: {
 		display: 'flex',
 		justifyContent: 'space-between',
@@ -30,12 +31,6 @@ const useStyles = makeStyles({
 		top: 0,
 		left: 0,
 		height: 80,
-		padding: '0 300px',
-		width: 'calc(100% - 600px)',
-		zIndex: 100,
-		'@media (min-width: 1024px)': {
-			padding: '0 40px',
-			width: 'calc(100% - 80px)'
-		}
+		zIndex: 100
 	}
-});
+}));

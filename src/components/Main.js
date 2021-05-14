@@ -7,6 +7,7 @@ import { getProduct } from '../redux/actions/productActions';
 import { getCartItems } from '../redux/actions/cartActions';
 
 import Product from './Product';
+import { Typography } from '@material-ui/core';
 
 const Main = () => {
 	const classes = useStyles();
@@ -23,30 +24,20 @@ const Main = () => {
 	);
 
 	return (
-		<div className={classes.root}>
-			<h1>Mais Vendidos</h1>
+		<React.Fragment>
+			<Typography variant="h2">Mais Vendidos</Typography>
 			<div className={classes.content}>
 				{product.map((product) => <Product key={product.product_id} product={product} />)}
 			</div>
-		</div>
+		</React.Fragment>
 	);
 };
 
 export default Main;
 
-const useStyles = makeStyles({
-	root: {
-		display: 'flex',
-		flexDirection: 'column',
-		width: 'calc(100% - 430px - 2* 300px)',
-		padding: '0 300px',
-		'@media (min-width: 1024px)': {
-			padding: '0 40px',
-			width: 'calc(100% - 430px - 80px)'
-		}
-	},
+const useStyles = makeStyles((theme) => ({
 	content: {
 		display: 'flex',
 		justifyContent: 'space-between'
 	}
-});
+}));

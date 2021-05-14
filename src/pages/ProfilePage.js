@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
+
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 
 import { personalData } from '../assets/data/personalData';
+
+import CenterContainer from '../components/Container/CenterContainer';
 
 const ProfilePage = () => {
 	const classes = useStyles();
@@ -17,9 +21,9 @@ const ProfilePage = () => {
 	};
 
 	return (
-		<div className={classes.root}>
+		<CenterContainer>
 			<form className={classes.formWrapper}>
-				<div className={classes.title}>Editar Dados</div>
+				<Typography variant="h2">Editar Dados</Typography>
 				<TextField
 					className={classes.formInput}
 					fullWidth
@@ -59,33 +63,22 @@ const ProfilePage = () => {
 					Confirmar
 				</Button>
 			</form>
-		</div>
+		</CenterContainer>
 	);
 };
 
 export default ProfilePage;
 
 const useStyles = makeStyles((theme) => ({
-	root: {
-		display: 'flex',
-		justifyContent: 'center'
-	},
 	formWrapper: {
 		width: '100%',
 		maxWidth: 420,
 		padding: '0 20px'
 	},
-	title: {
-		fontSize: '1.5625rem',
-		fontWeight: 500,
-		margin: '25px 0',
-		color: '#414143'
-	},
 	formInput: {
 		margin: '15px 0'
 	},
 	button: {
-		padding: '15px 0',
 		margin: '15px 0'
 	}
 }));

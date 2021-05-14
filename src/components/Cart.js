@@ -31,7 +31,9 @@ const Cart = () => {
 
 	return (
 		<div className={classes.root}>
-			<div className={classes.title}>Falta R$ {99 - num},31 para o pedido mínimo</div>
+			<div className={classes.title}>
+				Falta <b>R$ {99 - num},31</b> para o pedido mínimo
+			</div>
 			<Divider />
 			<div className={classes.cartScroll}>{cartItems.map((item, i) => <CartItem key={i} product={item} />)}</div>
 			<Divider />

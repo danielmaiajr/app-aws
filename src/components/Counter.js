@@ -65,15 +65,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 const useStyles = makeStyles((theme) => ({
 	container: {
 		display: 'flex',
-		//border: `solid 1px ${theme.palette.divider}`,
-		borderRadius: 3,
+		border: `solid 1px ${theme.palette.divider}`,
+		borderRadius: 4,
 		width: '100%',
-		height: 40
+		height: 30
 	},
 	innerButtons: {
 		display: 'flex',
-		flex: 1,
-		justifyContent: 'center',
+		justifyContent: 'space-between',
 		alignItems: 'center'
 	}
 }));

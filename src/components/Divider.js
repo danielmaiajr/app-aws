@@ -10,10 +10,11 @@ const Divider = () => {
 
 export default Divider;
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
 	root: {
 		width: 'calc(100% - 60px)',
-		borderTop: '1px solid #E4E1E1',
+		borderTop: '1px solid',
+		borderColor: theme.palette.divider,
 		margin: '0 30px'
 	}
-});
+}));
