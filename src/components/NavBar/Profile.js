@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Person from '@material-ui/icons/Person';
@@ -15,9 +16,11 @@ export default function Profile() {
 	return (
 		<div className={classes.root}>
 			<Person fontSize="inherit" color="secondary" className={classes.icon} onClick={() => setShow(!show)} />
-			<StyledBadge color="secondary" badgeContent={1}>
-				<ShoppingBasketIcon fontSize="inherit" color="secondary" className={classes.shopIcon} />
-			</StyledBadge>
+			<Link to="/">
+				<StyledBadge color="secondary" badgeContent={1}>
+					<ShoppingBasketIcon fontSize="inherit" color="secondary" className={classes.shopIcon} />
+				</StyledBadge>
+			</Link>
 			{show ? <div className={classes.background} onClick={() => setShow(!show)} /> : null}
 			{show ? <Menu setShow={setShow} show={show} /> : null}
 		</div>
