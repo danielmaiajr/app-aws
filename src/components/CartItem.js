@@ -64,13 +64,11 @@ const useStyles = makeStyles({
 
 	cartProductPrice: {
 		display: 'flex',
-		flex: 1,
 		color: '#111',
 		alignSelf: 'center',
-		justifyContent: 'flex-start',
 		fontWeight: '500'
 	},
 	cartProductCounter: {
-		width: '60%'
+		width: 100
 	}
 });

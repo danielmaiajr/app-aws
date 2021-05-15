@@ -65,6 +65,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 const useStyles = makeStyles((theme) => ({
 	container: {
 		display: 'flex',
+		justifyContent: 'space-between',
 		border: `solid 1px ${theme.palette.divider}`,
 		borderRadius: 4,
 		width: '100%',
@@ -72,7 +73,6 @@ const useStyles = makeStyles((theme) => ({
 	},
 	innerButtons: {
 		display: 'flex',
-		justifyContent: 'space-between',
 		alignItems: 'center'
 	}
 }));
