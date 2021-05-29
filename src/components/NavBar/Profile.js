@@ -21,8 +21,7 @@ export default function Profile() {
 					<ShoppingBasketIcon fontSize="inherit" color="secondary" className={classes.shopIcon} />
 				</StyledBadge>
 			</Link>
-			{show ? <div className={classes.background} onClick={() => setShow(!show)} /> : null}
-			{show ? <Menu setShow={setShow} show={show} /> : null}
+			<Menu setShow={setShow} show={show} />
 		</div>
 	);
 }
@@ -32,13 +31,6 @@ const useStyles = makeStyles({
 		display: 'flex',
 		alignItems: 'center',
 		position: 'relative'
-	},
-	background: {
-		position: 'fixed',
-		top: 0,
-		left: 0,
-		width: '100vw',
-		height: '100vh'
 	},
 	icon: {
 		fontSize: 28,

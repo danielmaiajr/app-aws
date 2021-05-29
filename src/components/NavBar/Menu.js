@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
 
 const Menu = ({ setShow, show }) => {
-	const classes = useStyles();
+	const classes = useStyles({ show });
 
 	const signOut = async () => {
 		try {
@@ -19,41 +19,47 @@ const Menu = ({ setShow, show }) => {
 	};
 
 	return (
-		<div className={classes.root}>
-			<div className={classes.title}>Olá, Daniel</div>
-			<Link className={classes.btn} to="/order" onClick={() => setShow(!show)}>
-				<ListAltOutlinedIcon style={{ marginRight: 30 }} />
-				<span>Pedidos</span>
-			</Link>
-			<Link className={classes.btn} to="/address" onClick={() => setShow(!show)}>
-				<ListAltOutlinedIcon style={{ marginRight: 30 }} />
-				<span>Endereços</span>
-			</Link>
-			<Link className={classes.btn} to="/profile" onClick={() => setShow(!show)}>
-				<ListAltOutlinedIcon style={{ marginRight: 30 }} />
-				<span>Editar dados</span>
-			</Link>
-			<div className={classes.btn} onClick={signOut}>
-				<ListAltOutlinedIcon style={{ marginRight: 30 }} />
-				<span>Sair</span>
+		<React.Fragment>
+			<div className={classes.background} onClick={() => setShow(!show)} />
+			<div className={classes.wrapper}>
+				<div className={classes.title}>Olá, Daniel</div>
+				<Link className={classes.btn} to="/order" onClick={() => setShow(!show)}>
+					<ListAltOutlinedIcon style={{ marginRight: 30 }} />
+					<span>Pedidos</span>
+				</Link>
+				<Link className={classes.btn} to="/address" onClick={() => setShow(!show)}>
+					<ListAltOutlinedIcon style={{ marginRight: 30 }} />
+					<span>Endereços</span>
+				</Link>
+				<Link className={classes.btn} to="/profile" onClick={() => setShow(!show)}>
+					<ListAltOutlinedIcon style={{ marginRight: 30 }} />
+					<span>Editar dados</span>
+				</Link>
+				<div className={classes.btn} onClick={signOut}>
+					<ListAltOutlinedIcon style={{ marginRight: 30 }} />
+					<span>Sair</span>
+				</div>
 			</div>
-		</div>
+		</React.Fragment>
 	);
 };
 
 export default Menu;
 
 const useStyles = makeStyles({
-	root: {
+	wrapper: {
 		position: 'absolute',
-		minWidth: '322px',
 		background: '#fff',
+		minWidth: '322px',
 		top: 38,
 		right: 0,
-		border: '1px solid #f7f7f7',
 		boxShadow: '0 4px 8px rgb(0 0 0 / 10%)',
+		border: '1px solid #f7f7f7',
 		borderRadius: '4px',
-		fontSize: '1.125rem'
+		fontSize: '1.125rem',
+		visibility: (props) => (props.show ? 'visible' : 'hidden'),
+		opacity: (props) => (props.show ? 1 : 0),
+		transition: 'opacity 300ms, visibility 300ms'
 	},
 	title: {
 		fontWeight: 500,
@@ -75,5 +81,16 @@ const useStyles = makeStyles({
 			color: 'red',
 			cursor: 'pointer'
 		}
+	},
+	background: {
+		position: 'fixed',
+		visibility: (props) => (props.show ? 'visible' : 'hidden'),
+		opacity: (props) => (props.show ? 1 : 0),
+		transition: 'opacity 300ms, visibility 300ms',
+		backgroundColor: 'rgb(0, 0, 0, 0.1)',
+		top: 0,
+		left: 0,
+		width: '100vw',
+		height: '100vh'
 	}
 });
