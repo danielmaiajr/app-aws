@@ -10,7 +10,7 @@ export default function Logo() {
 	return (
 		<div className={classes.root}>
 			<Link to="/">
-				<img src={car} alt="this is car" className={classes.image} />
+				<img src={car} alt="logo" className={classes.image} />
 			</Link>
 			{/* <Link to="/">
 				<div className={classes.title}>MERKATHO</div>
