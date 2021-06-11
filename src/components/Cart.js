@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 
+import { Link } from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -21,6 +23,8 @@ const Cart = () => {
 		},
 		[ dispatch ]
 	);
+	//TODO: change the render of cartItems to the app component
+	//Not every component will receive the cartItems when the app loads
 
 	let num = 0;
 	if (cartItems.length > 0) {
@@ -50,7 +54,9 @@ const Cart = () => {
 					<div>Total</div>
 					<div>R$ {num},69</div>
 				</div>
-				<button className={classes.cartCheckoutButton}>Escolher forma de pagamento</button>
+				<Link className={classes.cartCheckoutButton} to="/checkout">
+					Escolher forma de pagamento
+				</Link>
 			</div>
 		</div>
 	);
@@ -123,6 +129,7 @@ const useStyles = makeStyles({
 		fontWeight: 'bold'
 	},
 	cartCheckoutButton: {
+		textAlign: 'center',
 		border: 'none',
 		backgroundColor: '#ea1d2c',
 		color: '#FFF',
