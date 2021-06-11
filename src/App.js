@@ -12,6 +12,7 @@ import HomePage from './pages/HomePage';
 import OrderPage from './pages/OrgerPage';
 import ProfilePage from './pages/ProfilePage';
 import AddressPage from './pages/AddressPage';
+import CheckoutPage from './pages/CheckoutPage';
 
 const App = () => {
 	return (
@@ -36,6 +37,10 @@ const App = () => {
 
 						<Route exact path="/address">
 							<AddressPage />
+						</Route>
+
+						<Route exact path="/checkout">
+							<CheckoutPage />
 						</Route>
 					</Switch>
 				</Router>
