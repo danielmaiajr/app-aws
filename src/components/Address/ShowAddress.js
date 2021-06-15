@@ -4,10 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { getAddress, deleteAddress } from '../redux/actions/addressActions';
+import { getAddress, deleteAddress } from '../../redux/actions/addressActions';
 import { Button } from '@material-ui/core';
 
-const Address = ({ setAddress, show, setShow }) => {
+const ShowAddress = ({ setAddress, show, setShow }) => {
 	const classes = useStyles();
 	const dispatch = useDispatch();
 
@@ -54,7 +54,7 @@ const Address = ({ setAddress, show, setShow }) => {
 	);
 };
 
-export default Address;
+export default ShowAddress;
 
 const useStyles = makeStyles({
 	root: {
@@ -63,7 +63,7 @@ const useStyles = makeStyles({
 		justifyContent: 'center',
 		width: '100%',
 		maxWidth: 420,
-		padding: '0 20px'
+		padding: 20
 	},
 	addressItem: {
 		border: '1px solid #ddd',
