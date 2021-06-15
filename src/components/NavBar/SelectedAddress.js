@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
+
+import Modal from '../Modal';
 
 export default function SelectedAddress() {
 	const classes = useStyles();
+	const [ isModalOpen, setIsModalOpen ] = useState(false);
+
+	const OnModalClose = () => {
+		setIsModalOpen(false);
+	};
 
 	return (
-		<Link to="/address">
-			<div className={classes.title}>ENTREGAR EM</div>
-			<div className={classes.subtitle}>Av. José Carlos Paes, 600</div>
-		</Link>
+		<React.Fragment>
+			<button onClick={() => setIsModalOpen(true)}>
+				<div className={classes.title}>ENTREGAR EM</div>
+				<div className={classes.subtitle}>Av. José Carlos Paes, 600</div>
+			</button>
+			<Modal isOpen={isModalOpen} OnClose={OnModalClose}>
+				Modal
+			</Modal>
+		</React.Fragment>
 	);
 }
 
