@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Modal from '../Modal';
+import Address from '../Address';
 
 export default function SelectedAddress() {
 	const classes = useStyles();
@@ -13,18 +14,25 @@ export default function SelectedAddress() {
 
 	return (
 		<React.Fragment>
-			<button onClick={() => setIsModalOpen(true)}>
+			<button className={classes.button} onClick={() => setIsModalOpen(true)}>
 				<div className={classes.title}>ENTREGAR EM</div>
 				<div className={classes.subtitle}>Av. José Carlos Paes, 600</div>
 			</button>
 			<Modal isOpen={isModalOpen} OnClose={OnModalClose}>
-				Modal
+				<Address />
 			</Modal>
 		</React.Fragment>
 	);
 }
 
 const useStyles = makeStyles({
+	button: {
+		display: 'flex',
+		flexDirection: 'column',
+		background: 'inherit',
+		border: 'none',
+		cursor: 'pointer'
+	},
 	title: {
 		fontSize: 11,
 		fontWeight: 400,
