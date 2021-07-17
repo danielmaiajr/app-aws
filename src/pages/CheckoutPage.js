@@ -104,7 +104,7 @@ export default function CheckoutPage() {
 							Adicionar Cartão
 						</div>
 					</Grid>
-					<Grid item xs={6}>
+					<Grid item xs={6} style={{ display: 'flex', justifyContent: 'center', transform: 'rotateZ(0deg)' }}>
 						<img src="https://cdn.onlinewebfonts.com/svg/img_453473.png" width="65%" />
 					</Grid>
 				</Grid>
@@ -142,9 +142,10 @@ export default function CheckoutPage() {
 	);
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
 	container: {
-		width: '35%',
+		width: 550,
+		maxWidth: '100%',
 		marginTop: 110
 	},
 	delivery_container: {
@@ -201,4 +202,4 @@ const useStyles = makeStyles({
 		borderBottom: '1px solid #DDD',
 		margin: '15px 0'
 	}
-});
+}));
